@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
-import 'package:vakinha_burger_mobile/app/core/ui/vakinha_ui.dart';
 import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_appbar.dart';
 import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_button.dart';
 import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_textformfield.dart';
