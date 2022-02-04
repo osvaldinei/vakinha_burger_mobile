@@ -28,13 +28,14 @@ class AuthRepositoryImpl implements AuthRepository {
       log(message, error: result.status, stackTrace: StackTrace.current);
       throw RestClientException(message: message);
     }
-    return UserModel.fromJson('source');
+    
+    return login(email, password);
   }
 
 
   @override
   Future<UserModel> login(String email, String password) async {
-    final result = await _restClient.post('/auth', {
+    final result = await _restClient.post('/auth/', {
       'email': email,
       'password': password,
     });
