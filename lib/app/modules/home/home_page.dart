@@ -16,9 +16,9 @@ class HomePage extends GetView<HomeController> {
           currentIndex: controller.tabIndex,
           items: [
             const BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: 'Carrinho'),
-            const BottomNavigationBarItem(
                 icon: Icon(Icons.list), label: 'Produtos'),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart), label: 'Carrinho'),
             const BottomNavigationBarItem(
               icon: Icon(Icons.exit_to_app),
               label: 'Sair',
