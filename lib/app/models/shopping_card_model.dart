@@ -3,9 +3,9 @@ import 'package:vakinha_burger_mobile/app/models/product_model.dart';
 
 class ShoppingCardModel {
   int quantity;
-  ProductModel produto;
+  ProductModel product;
   ShoppingCardModel({
     required this.quantity,
-    required this.produto,
+    required this.product,
   });
 }
