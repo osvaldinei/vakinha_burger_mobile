@@ -8,7 +8,9 @@ import 'package:validatorless/validatorless.dart';
 import './shopping_card_controller.dart';
 
 class ShoppingCardPage extends GetView<ShoppingCardController> {
-  const ShoppingCardPage({Key? key}) : super(key: key);
+  final formKey = GlobalKey<FormState>();
+
+  ShoppingCardPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
             ),
             child: IntrinsicHeight(
               child: Form(
+                key: formKey,
                 child: Visibility(
                   visible: controller.products.isNotEmpty,
                   replacement: Padding(
@@ -41,7 +44,6 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                         ),
                         const Text(
                           'Nenhum item adicionado no carrinho',
-                          
                         ),
                       ],
                     ),
@@ -131,7 +133,13 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                           child: VakinhaButton(
                             width: context.widthTransformer(reducedBy: 10),
                             label: 'FINALIZAR',
-                            onPressed: () {},
+                            onPressed: () {
+                              final formValid =
+                                  formKey.currentState?.validate() ?? false;
+                              if (formValid) {
+                                controller.createOrder();
+                              }
+                            },
                           ),
                         ),
                       ),
@@ -219,7 +227,7 @@ class _CpfField extends GetView<ShoppingCardController> {
           TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             onChanged: (value) {
-              controller.address = value;
+              controller.cpf = value;
             },
             validator: Validatorless.multiple([
               Validatorless.required('CPF obrigatório'),
