@@ -90,7 +90,10 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                             label: controller.alredyAdded ? 'ATUALIZAR' : 'ADICIONAR'  , 
                             onPressed: controller.addProductInShoppingCard),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                     height: 10,
+                  ),
                 ],
               ),
             ),
